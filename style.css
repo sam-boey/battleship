@@ -1,5 +1,5 @@
 body {
-		background-image: url(image/ship.jpg);
+		background-image: url(images/ship.jpg);
 		background-repeat: no-repeat;
 		background-size: cover;
 }
@@ -18,7 +18,7 @@ body {
 		text-align: center;
 		font-size: 80px;
 		border-collapse: collapse;
-		cursor: url(image/crosshair.png)16 16,auto;
+		cursor: url(images/crosshair.png)16 16,auto;
 }
 
 .topHeader {
@@ -113,8 +113,8 @@ h3 {
 		border-radius: 10%;
 }
 
-#counter {
-		text-align: center;
+.counter {
+padding-bottom: 30px;
 }
 
 #reset {
