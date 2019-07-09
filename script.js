@@ -4,6 +4,8 @@ var count = 0;
 var targets = 20;
 var displayTarget = document.getElementById("targetsDisplay");
 var displayCount = document.getElementById("counterDisplay");
+var miss = new Audio('sounds/miss.mp3');
+var explosion = new Audio('sounds/explosion.mp3');
 var board = [
     [1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -79,8 +81,8 @@ function countRounds() {
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].addEventListener("click", function() {
             count++;
-            displayCount.innerHTML = "Number of torpedoes used : " + count + "/30";
-            if (count === 30) {
+            displayCount.innerHTML = "Number of torpedoes used : " + count + "/35";
+            if (count === 35) {
                 alert("You ran out of torpedoes! You lost!");
                 gameRestart();
             }
@@ -90,6 +92,7 @@ function countRounds() {
 }
 countRounds();
 
+
 //start game
 function startGame() {
     for (var i = 0; i < boxes.length; i++) {
@@ -98,19 +101,14 @@ function startGame() {
         boxes[i].addEventListener('click', fillClick, false); //click function
     };
     count = 0;
-    displayCount.innerHTML = "Number of torpedoes used : " + count + "/30";
+    displayCount.innerHTML = "Number of torpedoes used : " + count + "/35";
     targets = 20;
     displayTarget.innerHTML = "Targets remaining : " + targets + "/20";
 }
-
 //fire target
 var randomNum = Math.floor(Math.random() * 5);
 var playingBoard = boardArr[randomNum];
 console.log(playingBoard)
-
-//sound files
-var fart = new Audio('sounds/fart.mp3');
-var explosion = new Audio('sounds/explosion.mp3');
 
 function fillClick(event) {
     var position = playingBoard[parseInt(event.target.getAttribute("data-row"))][parseInt(event.target.getAttribute("data-col"))];
@@ -118,7 +116,7 @@ function fillClick(event) {
     if (event.target.style.backgroundColor === "rgba(128, 128, 128, 0.7)" || event.target.style.backgroundColor === "rgba(128, 0, 0, 0.7)") {
         alert("Stop wasting your torpedoes! You already fired at this location.");
     } else if (position === 0) { //when user clicks on empty cell (missed)
-        fart.play();
+        miss.play();
         event.target.style.backgroundColor = "rgba(128,128,128,0.7)";
         displayTarget.innerHTML = "Targets remaining : " + targets + "/20";
     } else if (position === 1) { //when user click on occupied cell (hit)
@@ -138,6 +136,7 @@ function fillClick(event) {
 var restartButton = document.getElementById("reset");
 restartButton.addEventListener("click", gameRestart);
 //restart feature
+
 function gameRestart() {
     startGame();
 }
