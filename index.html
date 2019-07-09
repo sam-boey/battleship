@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Battleship</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="containerTop">
+        <div class="topHeader">
+            <h1>BATTLESHIP</h1>
+            <p id="tagline">THE CLASSIC NAVAL COMBAT GAME</p>
+            <p id="how"> How to play</p>
+        </div>
+        <div class="instruction">
+            <ol class="instructions">
+                <li id="step1">Destroy the enemies' ships before your torpedo rounds run out! </li>
+                <li id="step2"> Click on any of the cells on the map to fire. </li>
+                <li id="step 3"> You only have 30 rounds to destroy all ships so use your torpedoes wisely! </li>
+            </ol>
+        </div>
+    </div>
+    <!--     <div class="containerMid">
+        <div class="Fleet-sidebar">
+            <h2>Select Your Fleet</h2>
+            <ul class="fleet-picks">
+                <li>Destroyer</li>
+                <li>Submarine</li>
+                <li>Cruiser</li>
+                <li>Battleship</li>
+                <li>Carrier</li>
+            </ul>
+            <button id="rotate-ship" class="hidden">Rotate Ship</button>
+            <button id="start-game" class="hidden">Start</button>
+            <button id="player-2" class="hidden">Player 2's Turn</button>
+        </div> -->
+    <div class="mid">
+        <div class="left">
+            <div class="restart">
+                <h3>Restart Game</h3>
+                <button id="reset" onclick="restart()">Reset</button>
+            </div>
+         </div>
+        <div class="board">
+            <div class="game-rows" data-row="0">
+                <div class="box" data-col="0" data-row="0"></div>
+                <div class="box" data-col="1" data-row="0"></div>
+                <div class="box" data-col="2" data-row="0"></div>
+                <div class="box" data-col="3" data-row="0"></div>
+                <div class="box" data-col="4" data-row="0"></div>
+                <div class="box" data-col="5" data-row="0"></div>
+                <div class="box" data-col="6" data-row="0"></div>
+                <div class="box" data-col="7" data-row="0"></div>
+                <div class="box" data-col="8" data-row="0"></div>
+                <div class="box" data-col="9" data-row="0"></div>
+            </div>
+            <div class="game-rows" data-row="1">
+                <div class="box" data-col="0" data-row="1"></div>
+                <div class="box" data-col="1" data-row="1"></div>
+                <div class="box" data-col="2" data-row="1"></div>
+                <div class="box" data-col="3" data-row="1"></div>
+                <div class="box" data-col="4" data-row="1"></div>
+                <div class="box" data-col="5" data-row="1"></div>
+                <div class="box" data-col="6" data-row="1"></div>
+                <div class="box" data-col="7" data-row="1"></div>
+                <div class="box" data-col="8" data-row="1"></div>
+                <div class="box" data-col="9" data-row="1"></div>
+            </div>
+            <div class="game-rows" data-row="2">
+                <div class="box" data-col="0" data-row="2"></div>
+                <div class="box" data-col="1" data-row="2"></div>
+                <div class="box" data-col="2" data-row="2"></div>
+                <div class="box" data-col="3" data-row="2"></div>
+                <div class="box" data-col="4" data-row="2"></div>
+                <div class="box" data-col="5" data-row="2"></div>
+                <div class="box" data-col="6" data-row="2"></div>
+                <div class="box" data-col="7" data-row="2"></div>
+                <div class="box" data-col="8" data-row="2"></div>
+                <div class="box" data-col="9" data-row="2"></div>
+            </div>
+            <div class="game-rows" data-row="3">
+                <div class="box" data-col="0" data-row="3"></div>
+                <div class="box" data-col="1" data-row="3"></div>
+                <div class="box" data-col="2" data-row="3"></div>
+                <div class="box" data-col="3" data-row="3"></div>
+                <div class="box" data-col="4" data-row="3"></div>
+                <div class="box" data-col="5" data-row="3"></div>
+                <div class="box" data-col="6" data-row="3"></div>
+                <div class="box" data-col="7" data-row="3"></div>
+                <div class="box" data-col="8" data-row="3"></div>
+                <div class="box" data-col="9" data-row="3"></div>
+            </div>
+            <div class="game-rows" data-row="4">
+                <div class="box" data-col="0" data-row="4"></div>
+                <div class="box" data-col="1" data-row="4"></div>
+                <div class="box" data-col="2" data-row="4"></div>
+                <div class="box" data-col="3" data-row="4"></div>
+                <div class="box" data-col="4" data-row="4"></div>
+                <div class="box" data-col="5" data-row="4"></div>
+                <div class="box" data-col="6" data-row="4"></div>
+                <div class="box" data-col="7" data-row="4"></div>
+                <div class="box" data-col="8" data-row="4"></div>
+                <div class="box" data-col="9" data-row="4"></div>
+            </div>
+            <div class="game-rows" data-row="5">
+                <div class="box" data-col="0" data-row="5"></div>
+                <div class="box" data-col="1" data-row="5"></div>
+                <div class="box" data-col="2" data-row="5"></div>
+                <div class="box" data-col="3" data-row="5"></div>
+                <div class="box" data-col="4" data-row="5"></div>
+                <div class="box" data-col="5" data-row="5"></div>
+                <div class="box" data-col="6" data-row="5"></div>
+                <div class="box" data-col="7" data-row="5"></div>
+                <div class="box" data-col="8" data-row="5"></div>
+                <div class="box" data-col="9" data-row="5"></div>
+            </div>
+            <div class="game-rows" data-row="6">
+                <div class="box" data-col="0" data-row="6"></div>
+                <div class="box" data-col="1" data-row="6"></div>
+                <div class="box" data-col="2" data-row="6"></div>
+                <div class="box" data-col="3" data-row="6"></div>
+                <div class="box" data-col="4" data-row="6"></div>
+                <div class="box" data-col="5" data-row="6"></div>
+                <div class="box" data-col="6" data-row="6"></div>
+                <div class="box" data-col="7" data-row="6"></div>
+                <div class="box" data-col="8" data-row="6"></div>
+                <div class="box" data-col="9" data-row="6"></div>
+            </div>
+            <div class="game-rows" data-row="7">
+                <div class="box" data-col="0" data-row="7"></div>
+                <div class="box" data-col="1" data-row="7"></div>
+                <div class="box" data-col="2" data-row="7"></div>
+                <div class="box" data-col="3" data-row="7"></div>
+                <div class="box" data-col="4" data-row="7"></div>
+                <div class="box" data-col="5" data-row="7"></div>
+                <div class="box" data-col="6" data-row="7"></div>
+                <div class="box" data-col="7" data-row="7"></div>
+                <div class="box" data-col="8" data-row="7"></div>
+                <div class="box" data-col="9" data-row="7"></div>
+            </div>
+            <div class="game-rows" data-row="8">
+                <div class="box" data-col="0" data-row="8"></div>
+                <div class="box" data-col="1" data-row="8"></div>
+                <div class="box" data-col="2" data-row="8"></div>
+                <div class="box" data-col="3" data-row="8"></div>
+                <div class="box" data-col="4" data-row="8"></div>
+                <div class="box" data-col="5" data-row="8"></div>
+                <div class="box" data-col="6" data-row="8"></div>
+                <div class="box" data-col="7" data-row="8"></div>
+                <div class="box" data-col="8" data-row="8"></div>
+                <div class="box" data-col="9" data-row="8"></div>
+            </div>
+            <div class="game-rows" data-row="9">
+                <div class="box" data-col="0" data-row="9"></div>
+                <div class="box" data-col="1" data-row="9"></div>
+                <div class="box" data-col="2" data-row="9"></div>
+                <div class="box" data-col="3" data-row="9"></div>
+                <div class="box" data-col="4" data-row="9"></div>
+                <div class="box" data-col="5" data-row="9"></div>
+                <div class="box" data-col="6" data-row="9"></div>
+                <div class="box" data-col="7" data-row="9"></div>
+                <div class="box" data-col="8" data-row="9"></div>
+                <div class="box" data-col="9" data-row="9"></div>
+            </div>
+        </div>
+        <div class="right" id="counterDisplay">
+                <div class="tracker" id= "counter">
+        </div>
+    </div>
+    <!--         </div>
+            <div class="Reset">
+                <h3>Play Again?</h3>
+                <button id="reset">Reset</button>
+            </div>
+        <div class="endgame">
+         <div class="text"></div>
+        </div> -->
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
