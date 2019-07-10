@@ -6,6 +6,9 @@ var displayTarget = document.getElementById("targetsDisplay");
 var displayCount = document.getElementById("counterDisplay");
 var miss = new Audio('sounds/miss.mp3');
 var explosion = new Audio('sounds/explosion.mp3');
+var randomNum = null;
+var playingBoard = null;
+console.log(playingBoard)
 var board = [
     [1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -95,6 +98,10 @@ countRounds();
 
 //start game
 function startGame() {
+    randomNum = Math.floor(Math.random() * 5);
+    playingBoard = boardArr[randomNum];
+    console.log(playingBoard);
+
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].innerText = '';
         boxes[i].style.removeProperty('background-color');
@@ -105,11 +112,8 @@ function startGame() {
     targets = 20;
     displayTarget.innerHTML = "Targets remaining : " + targets + "/20";
 }
-//fire target
-var randomNum = Math.floor(Math.random() * 5);
-var playingBoard = boardArr[randomNum];
-console.log(playingBoard)
 
+//fire target
 function fillClick(event) {
     var position = playingBoard[parseInt(event.target.getAttribute("data-row"))][parseInt(event.target.getAttribute("data-col"))];
     console.log(event.target)
@@ -133,10 +137,8 @@ function fillClick(event) {
     turn++; //adds a turn every round
 }
 
-var restartButton = document.getElementById("reset");
-restartButton.addEventListener("click", gameRestart);
-//restart feature
 
+//restart feature
 function gameRestart() {
     startGame();
 }

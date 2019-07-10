@@ -18,7 +18,7 @@ body {
 		text-align: center;
 		font-size: 80px;
 		border-collapse: collapse;
-		cursor: url(images/crosshair.png)16 16,auto;
+		cursor: url(images/crosshair.png)16 16, auto;
 }
 
 .topHeader {
@@ -61,14 +61,13 @@ h2 {
 		justify-content: center;
 }
 
-.restart {
+#restart {
 		text-align: center;
 		display: flex;
 		justify-content: flex-start;
 		flex-direction: column;
 		width: 100px;
 		height: 210px;
-		margin-right: 250px;
 		padding: 0 10px 0 10px;
 		margin-left: 142px;
 		font-size: 26px;
@@ -80,11 +79,12 @@ h2 {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
+		width: 180px;
+		margin-left: -100px;
+		padding-right: 100px;
 }
 
 h3 {
-		/*	margin-block-end:0.1em;
-*/
 		font-size: 24px;
 		font-weight: bold;
 		color: white;
@@ -94,17 +94,18 @@ h3 {
 		display: flex;
 		align-items: center;
 		text-align: center;
+		justify-content: space-around;
 }
 
 .right {
 		width: 190px;
-		height:300px;
+		height: 300px;
 		display: flex;
-		flex-direction:column;
+		flex-direction: column;
 		justify-content: center;
 		align-self: center;
 		text-align: center;
-		margin-left: 200px;
+		margin-left: 0;
 		font-size: 26px;
 		font-weight: bold;
 		color: white;
@@ -114,7 +115,7 @@ h3 {
 }
 
 .counter {
-padding-bottom: 30px;
+		padding-bottom: 30px;
 }
 
 #reset {
