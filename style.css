@@ -10,8 +10,8 @@ body {
 }
 
 .box {
-		width: 38px;
-		height: 38px;
+		width: 42px;
+		height: 42px;
 		border: 1px solid white;
 		display: flex;
 		justify-content: center;
@@ -95,6 +95,7 @@ h3 {
 		align-items: center;
 		text-align: center;
 		justify-content: space-around;
+		margin-top:30px;
 }
 
 .right {
